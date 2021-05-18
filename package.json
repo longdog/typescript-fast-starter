@@ -1,0 +1,38 @@
+{
+  "name": "typescript-fast-starter",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "longdog <linda@longdog.us>",
+  "license": "MIT",
+  "dependencies": {
+    "fastify": "^3.15.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.3.0",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
+    "esbuild": "^0.12.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^26.6.3",
+    "prettier": "^2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "esbuild src/client/index.tsx --bundle --sourcemap --outfile=dist/assets/index.js",
+    "watch": "watchexec --watch ./src/client --exts tsx,ts yarn build",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "dev": "ts-node-dev --respawn --transpile-only src/server/index.ts",
+    "serve": "cd ./dist/assets && devd -x '**.map' -l /=./ /api/=http://localhost:3000"
+  }
+}
